@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.4: http://docutils.sourceforge.net/" />
+<title>Creandus Auth Modules</title>
+<meta name="author" content="Mike Kelly &lt;pioto&#64;pioto.org&gt;" />
+<meta name="date" content="2007-12-25" />
+<style type="text/css">
+
+/*
+:Author: David Goodger
+:Contact: goodger@users.sourceforge.net
+:Date: $Date: 2005-12-18 01:56:14 +0100 (Sun, 18 Dec 2005) $
+:Revision: $Revision: 4224 $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin-left: 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left {
+  clear: left }
+
+img.align-right {
+  clear: right }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font-family: serif ;
+  font-size: 100% }
+
+pre.literal-block, pre.doctest-block {
+  margin-left: 2em ;
+  margin-right: 2em ;
+  background-color: #eeeeee }
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+tt.docutils {
+  background-color: #eeeeee }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="creandus-auth-modules">
+<h1 class="title">Creandus Auth Modules</h1>
+<table class="docinfo" frame="void" rules="none">
+<col class="docinfo-name" />
+<col class="docinfo-content" />
+<tbody valign="top">
+<tr><th class="docinfo-name">Author:</th>
+<td>Mike Kelly &lt;<a class="reference" href="mailto:pioto&#64;pioto.org">pioto&#64;pioto.org</a>&gt;</td></tr>
+<tr><th class="docinfo-name">Date:</th>
+<td>2007-12-25</td></tr>
+<tr><th class="docinfo-name">Revision:</th>
+<td>228</td></tr>
+<tr><th class="docinfo-name">Version:</th>
+<td>0.6.0</td></tr>
+</tbody>
+</table>
+<div class="section">
+<h1><a id="introduction" name="introduction">Introduction</a></h1>
+<p>One of the main design features of creandus is that it is easy to add in
+additional modules for authentication systems in different operating systems.
+This document defines the necessary features of any module.</p>
+</div>
+<div class="section">
+<h1><a id="naming" name="naming">Naming</a></h1>
+<p>Creandus modules follow this naming scheme:</p>
+<blockquote>
+<p><em>nss</em>-<em>userland</em>-<em>elibc</em>-<em>action</em></p>
+<dl class="docutils">
+<dt><em>nss</em></dt>
+<dd><p class="first">The name of the <a class="reference" href="http://www.gnu.org/software/libc/manual/html_node/Name-Service-Switch.html">Name Service Switch</a> <a class="footnote-reference" href="#id3" id="id1" name="id1">[1]</a> module being used. Usually,
+this is either <tt class="docutils literal"><span class="pre">compat</span></tt> or <tt class="docutils literal"><span class="pre">files</span></tt>, although it could also be something
+like <tt class="docutils literal"><span class="pre">nis</span></tt> or <tt class="docutils literal"><span class="pre">ldap</span></tt>. This is determined by the contents of your
+<a class="reference" href="http://www.gnu.org/software/libc/manual/html_node/NSS-Configuration-File.html">/etc/nsswitch.conf</a> file. For example:</p>
+<pre class="literal-block">
+# /etc/nsswitch.conf:
+
+passwd:   compat
+shadow:   compat
+group:    compat
+
+# passwd: db files nis
+# shadow: db files nis
+# group:  db files nis
+</pre>
+<p class="last">Of main interest to these scripts are the <tt class="docutils literal"><span class="pre">passwd</span></tt> and <tt class="docutils literal"><span class="pre">group</span></tt> lines,
+which define the backend used for users and groups, respectively.</p>
+</dd>
+</dl>
+</blockquote>
+<!--  -->
+<blockquote>
+<dl class="docutils">
+<dt><em>userland</em></dt>
+<dd>The userland is the general style of unix utilities provided in the system,
+<em>e.g.</em> &quot;GNU&quot;, &quot;BSD&quot;, or &quot;Darwin&quot;<a class="footnote-reference" href="#id4" id="id2" name="id2">[2]</a>.</dd>
+<dt><em>elibc</em></dt>
+<dd>Similar to <em>userland</em>, this specifies the libc implementation. This is how
+various flavors of BSD, for example, are distinguished. Some samples:
+&quot;glibc&quot; (for GNU/Linux), &quot;FreeBSD&quot;, &quot;OpenBSD&quot;, &quot;NetBSD&quot;, &quot;Darwin&quot;.</dd>
+<dt><em>action</em></dt>
+<dd>The action to be performed. This is one of &quot;useradd&quot;, &quot;usermod&quot;, &quot;userdel&quot;,
+&quot;groupadd&quot;, &quot;groupmod&quot;, or &quot;groupdel&quot;.</dd>
+</dl>
+</blockquote>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1" name="id3">[1]</a></td><td>NSS exists on most GNU, BSD, and Solaris systems, but not on Darwin (Mac
+OS X) systems. For consistency, if the nsswitch.conf file cannot be found,
+this value should be assumed to be <tt class="docutils literal"><span class="pre">compat</span></tt>.</td></tr>
+</tbody>
+</table>
+<table class="docutils footnote" frame="void" id="id4" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2" name="id4">[2]</a></td><td>Darwin is the underlying userland for Mac OS X.</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section">
+<h1><a id="module-file" name="module-file">Module File</a></h1>
+<p>The module file consists of a header and a function. The header is just basic
+boilerplate; copy what you see in one of the other modules.</p>
+<p>The function must be named as discussed above (<em>e.g.</em>
+<tt class="docutils literal"><span class="pre">compat-GNU-glibc-useradd()</span></tt>). There should be no code run in the global
+scope; all your variables should be <tt class="docutils literal"><span class="pre">local</span></tt>. Your file itself should be named
+as discussed above, with <tt class="docutils literal"><span class="pre">.bash</span></tt> appended (<em>e.g.</em>
+<tt class="docutils literal"><span class="pre">compat-GNU-glibv-useradd.bash</span></tt>). Each of the six possible actions can expect
+the following arguments:</p>
+<div class="section">
+<h2><a id="useradd" name="useradd">useradd</a></h2>
+<p>Adds a user to the system.</p>
+<blockquote>
+<dl class="docutils">
+<dt>home - <tt class="docutils literal"><span class="pre">${1}</span></tt></dt>
+<dd>The home directory of the user to be added.</dd>
+<dt>groups - <tt class="docutils literal"><span class="pre">${2}</span></tt></dt>
+<dd>A comma-separated list of the groups this user should belong to.</dd>
+<dt>shell - <tt class="docutils literal"><span class="pre">${3}</span></tt></dt>
+<dd>The default shell for the user to be added.</dd>
+<dt>uid - <tt class="docutils literal"><span class="pre">${4}</span></tt></dt>
+<dd>The uid for the user to be added.</dd>
+<dt>comment - <tt class="docutils literal"><span class="pre">${5}</span></tt></dt>
+<dd>The GECOS comment field for the user.</dd>
+<dt>name - <tt class="docutils literal"><span class="pre">${6}</span></tt></dt>
+<dd>The name of the user to be added.</dd>
+<dt>root - <tt class="docutils literal"><span class="pre">${7}</span></tt></dt>
+<dd>The root of the system we're working in.</dd>
+</dl>
+</blockquote>
+</div>
+<div class="section">
+<h2><a id="usermod" name="usermod">usermod</a></h2>
+<p>Modifies an existing user. Receives the same arguments as <em>useradd</em>.</p>
+</div>
+<div class="section">
+<h2><a id="userdel" name="userdel">userdel</a></h2>
+<p>Deletes an existing user.</p>
+<blockquote>
+<dl class="docutils">
+<dt>name - <tt class="docutils literal"><span class="pre">${1}</span></tt></dt>
+<dd>The name of the user to be removed.</dd>
+<dt>root - <tt class="docutils literal"><span class="pre">${2}</span></tt></dt>
+<dd>The root of the system we're working in.</dd>
+</dl>
+</blockquote>
+</div>
+<div class="section">
+<h2><a id="groupadd" name="groupadd">groupadd</a></h2>
+<p>Adds a user to the system.</p>
+<blockquote>
+<dl class="docutils">
+<dt>gid - <tt class="docutils literal"><span class="pre">${1}</span></tt></dt>
+<dd>The gid for the group to be added.</dd>
+<dt>name - <tt class="docutils literal"><span class="pre">${2}</span></tt></dt>
+<dd>The name of the group to be added.</dd>
+<dt>root - <tt class="docutils literal"><span class="pre">${3}</span></tt></dt>
+<dd>The root of the system we're working in.</dd>
+</dl>
+</blockquote>
+</div>
+<div class="section">
+<h2><a id="groupmod" name="groupmod">groupmod</a></h2>
+<p>Modifies an existing group. Receives the same arguments as <em>groupadd</em>.</p>
+</div>
+<div class="section">
+<h2><a id="groupdel" name="groupdel">groupdel</a></h2>
+<p>Deletes an existing group.</p>
+<blockquote>
+<dl class="docutils">
+<dt>name - <tt class="docutils literal"><span class="pre">${1}</span></tt></dt>
+<dd>The name of the user to be removed.</dd>
+<dt>root - <tt class="docutils literal"><span class="pre">${2}</span></tt></dt>
+<dd>The root of the system we're working in.</dd>
+</dl>
+</blockquote>
+</div>
+</div>
+<div class="section">
+<h1><a id="example" name="example">Example</a></h1>
+<p>Below is an example script, <tt class="docutils literal"><span class="pre">compat-BSD-FreeBSD-useradd.bash.in</span></tt>:</p>
+<pre class="literal-block">
+# Copyright 2006 Mike Kelly
+# Distributed under the terms of the GNU General Public License v2
+#
+# See docs/auth_modules.{txt,html} for more information on these files.
+#
+# $Id: auth_modules.txt.in 228 2007-12-25 22:51:51Z pioto $
+
+compat-BSD-FreeBSD-useradd() {
+    local home=&quot;${1}&quot; groups=&quot;${2}&quot; shell=&quot;${3}&quot;
+    local uid=&quot;${4}&quot; comment=&quot;${5}&quot; name=&quot;${6}&quot;
+    local root=&quot;${7}&quot;
+
+    pw -V &quot;${root}/etc&quot; useradd -d &quot;${home}&quot; -G &quot;${groups}&quot; \
+        -s &quot;${shell}&quot; -u &quot;${uid}&quot; -c &quot;${comment}&quot; &quot;${name}&quot;
+}
+# vim: ts=4 :
+</pre>
+<p>And here is another, <tt class="docutils literal"><span class="pre">compat-GNU-glibc-userdel.bash.in</span></tt>:</p>
+<pre class="literal-block">
+# Copyright 2006 Mike Kelly
+# Distributed under the terms of the GNU General Public License v2
+#
+# See docs/auth_modules.{txt,html} for more information on these files.
+#
+# $Id: auth_modules.txt.in 228 2007-12-25 22:51:51Z pioto $
+
+compat-GNU-glibc-userdel() {
+    local name=&quot;${1}&quot; root=&quot;${2}&quot;
+
+    [[ &quot;${root}&quot; != &quot;/&quot; ]] &amp;&amp; die &quot;Linux currently can't modify users&quot; \
+        &quot;when ROOT != /&quot;
+
+    userdel &quot;${name}&quot;
+}
+# vim: ts=4 :
+</pre>
+</div>
+<div class="section">
+<h1><a id="further-reading" name="further-reading">Further Reading</a></h1>
+<p>For further reading, you may wish to consult the creandus API, which you can
+find in the same place you found this document.</p>
+<!-- vim: set ft=glep tw=80 spell spelllang=en et : -->
+</div>
+</div>
+<div class="footer">
+<hr class="footer" />
+<a class="reference" href="auth_modules.txt">View document source</a>.
+Generated on: 2008-03-26 18:11 UTC.
+Generated by <a class="reference" href="http://docutils.sourceforge.net/">Docutils</a> from <a class="reference" href="http://docutils.sourceforge.net/rst.html">reStructuredText</a> source.
+
+</div>
+</body>
+</html>
