@@ -1,1 +1,4 @@
 _site/
+.*.sw[a-z]
+*.un~
+Session.vim
