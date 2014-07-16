@@ -6,15 +6,16 @@ Creandus
 ========
 
 Creandus began as a project for [Google's Summer of Code in
-2006][gsoc2006]. It aims to provide a simple interface for package
+2006][gsoc2006] ([proposal][proposal]). It aims to provide a simple interface for package
 managers to manage users added for specific packages. Hooks are
 available for the [Paludis][paludis] package manager, and it is easy
 enough to hook into your package manager, using the [Creandus API
 Documentation][creandus_api_docs].
 
-[gsoc2006]: http://code.google.com/soc/2006/gentoo/appinfo.html?csaid=81CE096C37FB183D
+[gsoc2006]: https://developers.google.com/open-source/soc/2006/#gentoo
 [paludis]: http://paludis.exherbo.org/
 [creandus_api_docs]: doc/API.html
+[proposal]: glep27-proposal.txt
 
 What is Creandus?
 =================
